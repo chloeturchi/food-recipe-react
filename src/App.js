@@ -18,8 +18,12 @@ const App = props => {
     const getData = async () => {
         if (query !== ""){
             const result = await Axios.get(url);
+            if(!result.data.more) {
+                return setAlert("No food with such Name")
+            }
             setRecipes(result.data.hits)
             console.log(result);
+            setAlert("");
             setQuery("");
         } else {
             setAlert('Please fill the form')
