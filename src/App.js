@@ -13,7 +13,8 @@ const App = props => {
 
     const getData = async () => {
         const result = await Axios.get(url);
-        console.log(result)
+        console.log(result);
+        setQuery("");
     }
 
     const onChange = e => {
@@ -22,7 +23,7 @@ const App = props => {
 
     const onSubmit = e => {
         e.preventDefault();
-        getData()
+        getData();
     }
 
     return (
@@ -35,7 +36,8 @@ const App = props => {
                     type="text" 
                     placeholder="Search Food"
                     autoComplete="off"
-                    onChange={onChange} />
+                    onChange={onChange}
+                    value={query} />
                 <input 
                     type="submit" 
                     value="search"/>
